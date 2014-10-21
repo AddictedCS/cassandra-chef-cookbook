@@ -252,6 +252,10 @@ if node.cassandra.setup_jamm
   end
 end
 
+link "#{node['java']['java_home']}/bin/java" do
+  to "/usr/bin/java"
+  action :create 
+end
 service "cassandra" do
   supports :restart => true, :status => true
   service_name node.cassandra.service_name
