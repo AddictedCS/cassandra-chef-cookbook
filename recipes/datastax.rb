@@ -104,7 +104,6 @@ when "debian"
   end
 
 when "rhel"
-  node.default[:cassandra][:conf_dir]  = "/etc/cassandra/conf"
   include_recipe "yum"
 
   if node['cassandra']['dse']
@@ -167,8 +166,7 @@ end
   node.cassandra.bin_dir,
   node.cassandra.log_dir,
   node.cassandra.root_dir,
-  node.cassandra.lib_dir,
-  node.cassandra.conf_dir].each do |dir|
+  node.cassandra.lib_dir].each do |dir|
   directory dir do
     owner     node.cassandra.user
     group     node.cassandra.group

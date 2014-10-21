@@ -20,6 +20,7 @@ default[:cassandra] = {
   :pid_dir        => "/var/run/cassandra",
   :dir_mode       => '0755',
   :service_action => [:enable, :start],
+  :conf_dir => '/etc/dse/cassandra',
 
   :limits => {
     :memlock  => 'unlimited',
