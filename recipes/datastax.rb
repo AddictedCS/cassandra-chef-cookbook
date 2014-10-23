@@ -257,8 +257,8 @@ if node.cassandra.setup_jamm
   end
 end
 
-link "#{node['java']['java_home']}/bin/java" do
-  to "/usr/bin/java"
+link "/usr/bin/java" do
+  to "#{node['java']['java_home']}/bin/java"
   action :create 
 end
 service "cassandra" do
